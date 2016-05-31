@@ -1,19 +1,37 @@
 Rails.application.routes.draw do
-  get 'index', to: 'tasks#index'
+  # Original: get 'index', to: 'tasks#index'
+  # # For Action: Read (all)
+  root to: 'tasks#index'
 
-  get 'show', to: 'tasks#show'
+  get 'tasks', to: 'tasks#index'
 
-  get 'new', to: 'tasks#new'
+  # Original: get 'show', to: 'tasks#show'
+  #  For Action: Read (one)
+  get 'tasks/:id', to: 'tasks#show'
 
-  get 'create', to: 'tasks#create'
+  # Original: get 'new', to: 'tasks#new'
+  # For Action: Create - Step 1: GET the form  
+  get 'tasks/new', to: 'tasks#new'
 
-  get 'edit', to: 'tasks#edit'
+  # Original: get 'create', to: 'tasks#create'
+  # For Action: Create - Step 2: POST the form 
+  post 'tasks/new', to: 'tasks#create'
 
-  get 'update', to: 'tasks#update'
+  # Original: get 'edit', to: 'tasks#edit'
+  # For Action: Update - Step 1: GET the form 
+  get 'tasks/:id/edit', to: 'tasks#edit'
 
-  get 'destroy', to: 'tasks#destroy'
+  # Original: get 'update', to: 'tasks#update'
+  # For Action: Update - Step 2: PATCH the form 
+  patch 'tasks/:id', to: 'tasks#update'
 
-  root to: 'tasks#ndex'
+
+  # Original: get 'destroy', to: 'tasks#destroy'
+  # For Action: Delete 
+  delete 'tasks/:id', to: 'tasks#destroy'
+
+
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

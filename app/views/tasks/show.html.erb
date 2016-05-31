@@ -1,2 +1,8 @@
 <h1>Tasks#show</h1>
 <p>Find me in app/views/tasks/show.html.erb</p>
+
+<!-- Should display the task's details (content, date of creation, etc.) and a back-link to the index page. -->
+<h2><%= @task.name %></h2>
+<p><%= @task.completed %></p>
+
+<%= link_to "Back to All Tasks", tasks_path %>
