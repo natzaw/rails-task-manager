@@ -1,6 +1,6 @@
-class CreateTaskManagers < ActiveRecord::Migration
+class CreateTasks < ActiveRecord::Migration
   def change
-    create_table :task_managers do |t|
+    create_table :tasks do |t|
       t.string :name
       t.boolean :completed
 
